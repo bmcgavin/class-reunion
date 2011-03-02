@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>
+            Class Reunion - CSS Viewer
+        </title>
+    </head>
+    <body>
+        <h1>
+            <a href="/class-reunion/">
+                Class Reunion
+            </a>
+        </h1>
+        <p>
+            Enter the URL of your CSS file and you can browse the classes it contains.
+        </p>
+        <p>
+            <form action="#" method="get" name="css-url">
+                <input type="text" name="url" id="url" />
+                <input type="submit" name="submit" value="Show me!" />
+            </form>
+        </p>
+<?PHP
+    echo $divs;
+?>
+        <script type="text/javascript">
+            var index;
+            var target;
+            var current;
+            var list;
+            var gallery;
+            window.onload = function() {
+                index = 1;
+                target = document.getElementById('current');
+                gallery = document.getElementById('gallery');
+                list = document.getElementById('all_list');
+                view('class_1_outer');
+            }
+            function view(name) {
+                tmp = name.split('_');
+                index = tmp[1];
+                current = document.getElementById(name);
+                target.innerHTML = current.innerHTML;
+            }
+            function viewPrevious() {
+                if (index == 1) {
+                    return;
+                }
+                view('class_'+(--index)+'_outer');
+            }
+            function viewNext() {
+                if (!document.getElementById('class_'+parseInt((parseInt(index)+1))+'_outer')) {
+                    return;
+                }
+                view('class_'+(++index)+'_outer');
+            }
+            function viewAsList() {
+                gallery.style.display = 'none';
+                list.style.display = 'block';
+            }
+            function viewGallery() {
+                list.style.display = 'none';
+                gallery.style.display = 'block';
+            }
+        </script>
+        <div id="gallery" name="gallery">
+            <a href="javascript:viewAsList();" style="float:left;">
+                View all
+            </a>&nbsp;or pick a class : 
+<?PHP
+    echo $style_list;
+?>
+            <br/><br/>
+            <table style="width:100%;">
+                <tr>
+                    <td style="vertical-align:top; width:10%;">
+                        <a id="view_previous" href="javascript:viewPrevious();" style="float:left;">
+                            &lt;&lt;
+                        </a>
+                    </td>
+                    <td>
+                        <div id="current" name="current" style="width:100%;<?=$break;?>">
+                            &nbsp;
+                        </div>
+                    </td>
+                    <td style="vertical-align:top; width:10%; text-align:right;">
+                        <a id="view_next" href="javascript:viewNext();" style="float:right;">
+                            &gt;&gt;
+                        </a><br/><br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
