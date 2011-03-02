@@ -2,8 +2,8 @@
 //supply a URL
 $url = null;
 if (!isset($argv)) {
-    if (isset($_GET['url'])) {
-        $url = $_GET['url']; //MASSIVELY DANGEROUS
+    if (isset($_POST['url'])) {
+        $url = $_POST['url']; //MASSIVELY DANGEROUS
     }
 } else {
     $url = $argv[1];
