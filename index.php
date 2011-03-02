@@ -269,7 +269,7 @@ foreach($styles as $name => $style) {
         $tags = array("div");
     }
         $style_list .= <<<EOF
-                <option value="class_{$id}_wrapper">{$name}</option>
+                <option value="class_{$id}_outer">{$name}</option>
 EOF;
         $divs.= <<<EOF
             <div id="class_{$id}_outer" name="class_{$id}_outer">
