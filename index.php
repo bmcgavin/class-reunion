@@ -279,7 +279,7 @@ EOF;
                     </p>
                     {$style_desc}
 				</div>
-				<div id="class_{$id}_wrapper" name="class_{$id}_wrapper">
+				<div id="class_{$id}_wrapper" name="class_{$id}_wrapper" style="{$break}">
 EOF;
     foreach($tags as $tag) {
         //Tag could be an input with a type in, so make a closing tag of the first word only
